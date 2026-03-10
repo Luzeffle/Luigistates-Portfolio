@@ -13,11 +13,6 @@ export async function GET() {
 
 // This runs when they click "Initiate" to ADD +1 to the views
 export async function POST() {
-  try {
-    // .incr() automatically adds 1 to the number in the database
-    const views = await kv.incr('firefly_views');
-    return NextResponse.json({ views });
-  } catch (error) {
-    return NextResponse.json({ views: 0 });
-  }
+  const views = await kv.incr('firefly_views');
+  return NextResponse.json({ views });
 }

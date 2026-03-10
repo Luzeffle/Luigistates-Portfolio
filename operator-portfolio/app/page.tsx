@@ -80,8 +80,11 @@ export default function FireflyLandingPage() {
           </video>
 
           <div className="text-center animate-pulse relative z-10">
-            <p className="text-emerald-500 text-sm tracking-[0.5em] uppercase mb-2">System Locked</p>
-            <h1 className="text-3xl font-light text-white">Click anywhere to <span className="font-semibold text-emerald-400">Initiate</span></h1>
+            <p className="text-emerald-500 text-sm tracking-[0.5em] uppercase mb-2">
+              Fyreflies are such magical creatures, aren't they? 
+              They may throw themselves at a flame or suddenly grow old, 
+              but every night before that, they will shine brighter than the stars
+            </p>
           </div>
         </div>
       ) : (
@@ -117,8 +120,8 @@ export default function FireflyLandingPage() {
               </div>
               
               <div>
-                <h1 className="text-4xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-500 drop-shadow-[0_0_8px_rgba(52,211,118,0.4)]">
-                  Luigistates
+                <h1 className="text-4xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire">
+                  LUIGISTATES
                 </h1>
                 <p className="text-sm mt-2 text-slate-400 italic font-serif">
                   "Like fireflies to a flame... life begets death."
@@ -149,7 +152,7 @@ export default function FireflyLandingPage() {
                   >
                     {copied ? 'COPIED!' : 'LUIGISTATES123'}
                   </span>{' '}
-                  <span className="opacity-50">#AD</span>
+                  <span className="opacity-50">#AD #EPICPARTNER</span>
                 </h2>
                 <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-emerald-500/50"></div>
               </div>
@@ -178,7 +181,7 @@ export default function FireflyLandingPage() {
                       alt="sticker"
                       className="absolute -right-1 -top-1 w-10 h-10 opacity-20 group-hover:opacity-100 group-hover:animate-float transition-all duration-500 pointer-events-none drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" 
                     />
-                    <h3 className="text-sm font-bold tracking-widest text-slate-300 group-hover:text-white uppercase transition-colors">Donate Me</h3>
+                    <h3 className="text-sm font-bold tracking-widest text-slate-300 group-hover:text-white uppercase transition-colors">Donations</h3>
                   </div>
                 </a>
 
