@@ -183,7 +183,7 @@ export default function FireflyLandingPage() {
                         alt="sticker"
                         className="absolute -right-1 -top-1 w-10 h-10 opacity-20 group-hover:opacity-100 group-hover:animate-float transition-all duration-500 pointer-events-none drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" 
                       />
-                    <h3 className="text-sm font-bold tracking-widest text-slate-300 group-hover:text-white uppercase transition-colors">Discord Server - LinIsCrazy -</h3>
+                    <h3 className="text-sm font-bold tracking-widest text-slate-300 group-hover:text-white uppercase transition-colors">Discord Server -LinIsCrazy-</h3>
                   </div>
                 </a>
 

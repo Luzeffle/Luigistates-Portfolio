@@ -74,11 +74,12 @@ body {
 
 /* Custom class for the name */
 .font-firefly {
-  font-family: 'Inter', sans-serif; /* Next.js default, but styled tactically */
-  font-weight: 800;
+  font-family: var(--font-playfair), serif; /* Next.js default, but styled tactically */
+  font-weight: 700;
   font-style: italic;
-  letter-spacing: 0.1em;
+  letter-spacing: -0.2em;
   text-transform: uppercase;
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
 }
 
 .animate-glitch {
