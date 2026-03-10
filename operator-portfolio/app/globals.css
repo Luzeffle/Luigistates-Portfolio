@@ -53,9 +53,9 @@ body {
 
 /* Custom class for the name */
 .font-firefly {
-  font-family: var(--font-playfair), serif; /* Next.js default, but styled tactically */
+  font-family: var(--font-geist-mono), serif; /* Next.js default, but styled tactically */
   font-weight: 700;
   font-style: italic;
-  text-transform: uppercase;
+  letter-spacing: -0.1em;
   filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
 }

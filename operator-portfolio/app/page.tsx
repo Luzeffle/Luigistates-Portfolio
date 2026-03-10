@@ -4,12 +4,12 @@ import React, { useState, useRef, useEffect } from 'react';
 
 export default function FireflyLandingPage() {
   const [hasEntered, setHasEntered] = useState(false);
+  const [isEntering, setIsEntering] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [views, setViews] = useState<number>(0);
   const [copied, setCopied] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // 1. Fetch current view count
   useEffect(() => {
     fetch('/api/views')
       .then((res) => res.json())
@@ -18,7 +18,6 @@ export default function FireflyLandingPage() {
       });
   }, []);
 
-  // 2. Handle Copy Code Function
   const handleCopyCode = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevents clicking the code from triggering other events
     navigator.clipboard.writeText('LUIGISTATES123');
@@ -26,15 +25,19 @@ export default function FireflyLandingPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // 3. Handle Entering the Site
   const handleEnter = async () => {
-    setHasEntered(true);
+    if (isEntering) return; // Prevents spam-clicking the intro
     
+    // 1. Trigger the fade-out animation
+    setIsEntering(true);
+    
+    // 2. Start the music immediately
     if (audioRef.current) {
       audioRef.current.volume = volume;
       audioRef.current.play().catch(e => console.log("Audio play blocked:", e));
     }
 
+    // 3. Increment the database
     try {
       const res = await fetch('/api/views', { method: 'POST' });
       const data = await res.json();
@@ -42,6 +45,11 @@ export default function FireflyLandingPage() {
     } catch (error) {
       console.error("Failed to increment views", error);
     }
+
+    // 4. Wait exactly 1 second for the fade effect, then swap the UI
+    setTimeout(() => {
+      setHasEntered(true);
+    }, 1000); 
   };
 
   // 4. Handle Volume Slider
@@ -70,20 +78,19 @@ export default function FireflyLandingPage() {
 
       {!hasEntered ? (
         /* INTRO SCREEN */
-        <div 
-          onClick={handleEnter}
-          className="absolute inset-0 z-50 flex items-center justify-center cursor-pointer bg-slate-950 transition-colors duration-500"
-        >
-          {/* Intro Background Video/GIF */}
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30 z-0 pointer-events-none">
-            <source src="/intro-bg.mp4" type="video/mp4" />
-          </video>
+          <div 
+            onClick={handleEnter}
+            // The magic happens here: If isEntering is true, it blurs, fades to 0, and zooms in slightly
+            className={`absolute inset-0 z-50 flex items-center justify-center cursor-pointer bg-slate-950 transition-all duration-1000 ease-in-out ${
+              isEntering ? "opacity-0 scale-105 blur-xl pointer-events-none" : "opacity-100 scale-100 blur-0"
+            }`}
+          >
 
           <div className="text-center animate-pulse relative z-10">
             <p className="text-emerald-500 text-sm tracking-[0.2em] uppercase mb-2 max-w-sm mx-auto leading-relaxed text-center whitespace-pre-line opacity-80">
               {`Fyreflies are such magical creatures, aren't they?
-              They may throw themselves at a flame 
-              or suddenly grow old,
+              They may throw themselves at a 
+              flame or suddenly grow old,
               but every night before that, 
               they will shine brighter than the stars`}
             </p>
@@ -126,7 +133,7 @@ export default function FireflyLandingPage() {
                   data-text="LUIGISTATES"
                   className="text-4xl font-firefly tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire"
                 >
-                  LUIGISTATES
+                  Luigistates
                 </h1>
                 <p className="text-sm mt-2 text-slate-400 italic font-serif">
                   "Like fireflies to a flame... life begets death."
