@@ -124,7 +124,7 @@ export default function FireflyLandingPage() {
               <div>
                 <h1 
                   data-text="LUIGISTATES"
-                  className="text-4xl font-firefly tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire animate-glitch"
+                  className="text-4xl font-firefly tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire"
                 >
                   LUIGISTATES
                 </h1>

@@ -1,18 +1,32 @@
-import { kv } from '@vercel/kv';
+import { createClient } from 'redis';
 import { NextResponse } from 'next/server';
 
-// This runs when the page first loads to just GET the current views
+// Prevents Next.js from freezing the view count
+export const dynamic = 'force-dynamic'; 
+
 export async function GET() {
-  try {
-    const views = await kv.get('firefly_views') || 0;
-    return NextResponse.json({ views });
-  } catch (error) {
-    return NextResponse.json({ views: 0 });
-  }
+  // 1. Initialize and connect using Vercel's environment variable
+  const redis = createClient({ url: process.env.KV_URL });
+  await redis.connect();
+
+  // 2. Fetch the current views
+  const currentViews = await redis.get("firefly_views");
+  
+  // 3. Disconnect so we don't overload the server
+  await redis.disconnect();
+
+  // 4. Return the result (if it's null, return 0)
+  return NextResponse.json({ views: currentViews ? parseInt(currentViews) : 0 }, { status: 200 });
 }
 
-// This runs when they click "Initiate" to ADD +1 to the views
 export async function POST() {
-  const views = await kv.incr('firefly_views');
-  return NextResponse.json({ views });
+  const redis = createClient({ url: process.env.KV_URL });
+  await redis.connect();
+
+  // 2. The 'incr' command automatically adds +1 to the database
+  const newViews = await redis.incr("firefly_views");
+  
+  await redis.disconnect();
+
+  return NextResponse.json({ views: newViews }, { status: 200 });
 }
