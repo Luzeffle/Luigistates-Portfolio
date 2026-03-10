@@ -80,10 +80,12 @@ export default function FireflyLandingPage() {
           </video>
 
           <div className="text-center animate-pulse relative z-10">
-            <p className="text-emerald-500 text-sm tracking-[0.5em] uppercase mb-2">
-              Fyreflies are such magical creatures, aren't they? 
-              They may throw themselves at a flame or suddenly grow old, 
-              but every night before that, they will shine brighter than the stars
+            <p className="text-emerald-500 text-sm tracking-[0.2em] uppercase mb-2 max-w-sm mx-auto leading-relaxed text-center whitespace-pre-line opacity-80">
+              {`Fyreflies are such magical creatures, aren't they?
+              They may throw themselves at a flame 
+              or suddenly grow old,
+              but every night before that, 
+              they will shine brighter than the stars`}
             </p>
           </div>
         </div>
@@ -120,7 +122,10 @@ export default function FireflyLandingPage() {
               </div>
               
               <div>
-                <h1 className="text-4xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire">
+                <h1 
+                  data-text="LUIGISTATES"
+                  className="text-4xl font-firefly tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-200 to-amber-500 drop-shadow-[0_0_12px_rgba(52,211,118,0.4)] animate-fire animate-glitch"
+                >
                   LUIGISTATES
                 </h1>
                 <p className="text-sm mt-2 text-slate-400 italic font-serif">
@@ -142,19 +147,29 @@ export default function FireflyLandingPage() {
             </header>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-emerald-500/50"></div>
-                <h2 className="text-xs uppercase tracking-[0.3em] text-emerald-400 font-semibold flex items-center justify-center gap-1">
-                  Use SAC Code:{' '}
-                  <span 
-                    onClick={handleCopyCode}
-                    className="italic cursor-pointer px-1 rounded hover:bg-emerald-500/20 hover:text-emerald-300 transition-all duration-300"
-                  >
-                    {copied ? 'COPIED!' : 'LUIGISTATES123'}
-                  </span>{' '}
-                  <span className="opacity-50">#AD #EPICPARTNER</span>
-                </h2>
-                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-emerald-500/50"></div>
+              <div className="flex flex-col items-center gap-2 w-full">
+                {/* The Top Line/Divider logic */}
+                <div className="flex items-center w-full gap-3">
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-emerald-500/50"></div>
+                  
+                  <h2 className="text-xs uppercase tracking-[0.3em] text-emerald-400 font-semibold flex flex-col md:flex-row items-center gap-1">
+                    <span className="whitespace-nowrap">Use SAC Code:</span>
+                    <span 
+                      onClick={handleCopyCode}
+                      className="italic cursor-pointer px-2 py-0.5 rounded bg-emerald-500/10 hover:bg-emerald-500/20 hover:text-emerald-300 transition-all duration-300 border border-emerald-500/20 md:border-none"
+                    >
+                      {copied ? 'COPIED!' : 'LUIGISTATES123'}
+                    </span>
+                  </h2>
+
+                  <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-emerald-500/50"></div>
+                </div>
+
+                {/* The Hashtags neatly underneath */}
+                <div className="flex gap-4 opacity-40 text-[10px] uppercase tracking-[0.2em] text-emerald-400 font-medium">
+                  <span>#AD</span>
+                  <span>#EPICPARTNER</span>
+                </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
