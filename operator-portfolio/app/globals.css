@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer base {
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(12deg); }
+    50% { transform: translateY(-5px) rotate(12deg); }
+  }
+}
+
+/* This creates a custom utility class you can use in your HTML */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
