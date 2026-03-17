@@ -20,11 +20,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Luigistates | Portfolio",
+  title: "Luigistates",
   description: "Don't forget to use my code!",
   // This is the magic section for link previews!
   openGraph: {
-    title: "Luigistates | Portfolio",
+    title: "Luigistates",
     description: "Don't forget to use my code!",
     url: "https://luigistates-portfolio.vercel.app/",
     siteName: "Luigistates Portfolio",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   // Twitter uses its own slightly different system
   twitter: {
     card: "summary_large_image",
-    title: "Luigistates | Portfolio",
+    title: "Luigistates",
     description: "Don't forget to use my code!",
     images: ["/opengraph-image.png"], // Same image as above
   },
