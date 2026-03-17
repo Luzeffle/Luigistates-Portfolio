@@ -22,6 +22,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Luigistates",
   description: "Don't forget to use my code!",
+  icons: {
+    icon: "/profile.webp",
+  },
+
   // This is the magic section for link previews!
   openGraph: {
     title: "Luigistates",
